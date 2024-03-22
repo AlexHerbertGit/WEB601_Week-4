@@ -17,9 +17,16 @@ let db = require('../../db');
  }
 
  exports.show = (req, res, next) => {
-    res.render('show', {users: db.users})
+    res.render('show', {user: req.user})
  };
 
 exports.edit = (req, res, next) => {
-    res.render('edit', {users: db.users})
+    res.render('edit', {user: req.user})
+ };
+
+exports.update = (req, res, next) => {
+   let body = req.body
+   req.user.name = body.user.name
+   res.message('Inforamtion has been updated')
+   res.redirect('/user/' + req.user.id)
  };
