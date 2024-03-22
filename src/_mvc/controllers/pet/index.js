@@ -25,3 +25,4 @@ exports.update = (req, res, next) => {
     res.message("information updated")
     res.redirect('/pet/' + req.pet.id)
 }
+
